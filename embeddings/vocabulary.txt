@@ -1,0 +1,5 @@
+patient 20
+liver 10
+hepatic 5
+hepatitis 3
+organ 1
