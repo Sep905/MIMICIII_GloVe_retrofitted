@@ -51,20 +51,7 @@ def plots(true_base,pred_base,Label_base,true_retro,pred_retro,Label_retro):
     plt.ylabel("True Positive rate",fontsize=18)
     plt.savefig("ROC.png")
     
-    #PR CURVE
-    prebase,recbase,Thresholdsbase = sklearn.metrics.precision_recall_curve(true_base, pred_base)
-    preretro,recretro,Thresholdsretro = sklearn.metrics.precision_recall_curve(true_retro, pred_retro)
-    plt.figure(figsize=[10, 8])
-    plt.plot(recbase, prebase, linestyle='-.', label=Label_base, color='darkorange')
-    plt.plot(recretro, preretro, marker='.', label=Label_retro, color='green')
-    plt.plot([0, 1], [1, 0], color='navy', linestyle='--')
-    # axis labels
-    plt.xlabel('Recall')
-    plt.ylabel('Precision')
-    # show the legend
-    plt.legend()
-
-
+ 
 def mean_metrics (m1,m2,m3,m4,m5):
     
     meanAUC = np.mean([m1["auroc"],m2["auroc"], m3["auroc"], m4["auroc"], m5["auroc"]])
