@@ -87,7 +87,7 @@ Scores achieved in AUC-ROC, AUC-PR and Brier-score when using the HCNN for morta
 | GloVe   | 0.815±0.003     | 0.443±0.003    |  <b>0.088</b>±0.005    |
 | Retrofitted GloVe     | <b>0.822</b>±0.002       | <b>0.451</b>±0.003     | 0.089±0.003    |
 
-Exaple to obtain the mean scores over the model random runs:
+Example to obtain the mean scores over the model random runs:
 ```
 glove_test1,glove_prob1,glove_true1 = read_test("results_test/glove/1/") #for GloVe predictions
 retro_test1,retro_prob1,retro_true1 = read_test("results_test/retro_preprocessed_syn/1/") #for GloVe retrofitted predictions
@@ -96,7 +96,7 @@ mean_metrics(glove_test1,glove_test2,glove_test3,glove_test4,glove_test5) #to pr
 
 ![ROC curve and calibration plot](img/plots.png?raw=true)
 
-Exaple to plot the ROC curve and calibration plot for the best model run out of the random ones
+Example to plot the ROC curve and calibration plot for the best model run out of the random ones
 ```
 #to find the best runs 
 best_base = find_best_run(glove_test1,glove_test2,glove_test3,glove_test4,glove_test5)
