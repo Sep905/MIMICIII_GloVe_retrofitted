@@ -89,9 +89,9 @@ Scores achieved in AUC-ROC, AUC-PR and Brier-score when using the HCNN for morta
 
 
 
-![ROC curve and calibration plot](plots.png?raw=true)
+![ROC curve and calibration plot](img/plots.png?raw=true)
 
 
 
-![TSNE visualization](tsne.png?raw=true)
+![TSNE visualization](img/tsne.png?raw=true)
 
