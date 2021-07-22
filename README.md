@@ -22,7 +22,7 @@ G. Albi, M. Rios, R. Bellazzi and A. Abu-Hanna. Pre-trained Text Representations
 
 - MIMIC-III clinical notes, available at https://mimic.physionet.org/ after request, as CSV files.
 - UMLS release, available at https://www.nlm.nih.gov/research/umls/licensedcontent/umlsknowledgesources.html. Then the Metathesaurus tables can be loaded in a DB through  MethamorphoSys installation wizard: https://www.nlm.nih.gov/research/umls/implementation_resources/metamorphosys/help.html.
-- ```requirements_py3.6.txt``` contains the Python requirements.
+- ```requirements.txt``` contains the Python requirements.
 
 ### Build Dataset
 
