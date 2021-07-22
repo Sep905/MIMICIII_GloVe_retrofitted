@@ -1,7 +1,7 @@
 # Pre-trained Text Representations with Knowledge Bases for Mortality Prediction 
 
 
-![Diagram](diagram.PNG?raw=true)
+![Diagram](img/diagram.PNG?raw=true)
 
 
 ><b>Abstract</b>: 
