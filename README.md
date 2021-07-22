@@ -81,26 +81,22 @@ Note: a test run needs a ```best_model.pt``` files resulting from training, sinc
 ## Results, plot and visualization 
 Scores achieved in AUC-ROC, AUC-PR and Brier-score when using the HCNN for mortality prediction. We compared the MIMIC-III text representaions learned with GloVe and enriched with UMLS synonyms by using Retrofitting in the 48H ICU mortality prediction task:
 
-<center>
+
 | Model | AUC-ROC | AUC-PR | Brier-score |
 |     :---:       |     :---:      |     :---:      |     :---:      |
 | GloVe   | 0.815±0.003     | 0.443±0.003    |  <b>0.088</b>±0.005    |
 | Retrofitted GloVe     | <b>0.822</b>±0.002       | <b>0.451</b>±0.003     | 0.089±0.003    |
-</center>
 
-
-
-![ROC curve and calibration plot](img/plots.png?raw=true)
-
-Exaple to obtain the scores and the plots:
-- Mean scores over random runs:
+Exaple to obtain the mean scores over the model random runs:
 ```
 glove_test1,glove_prob1,glove_true1 = read_test("results_test/glove/1/") #for GloVe predictions
 retro_test1,retro_prob1,retro_true1 = read_test("results_test/retro_preprocessed_syn/1/") #for GloVe retrofitted predictions
 mean_metrics(glove_test1,glove_test2,glove_test3,glove_test4,glove_test5) #to print the mean metrics over the random runs
 ```
 
-- ROC curve and calibration plot for the best run out of the random ones
+![ROC curve and calibration plot](img/plots.png?raw=true)
+
+Exaple to plot the ROC curve and calibration plot for the best model run out of the random ones
 ```
 #to find the best runs 
 best_base = find_best_run(glove_test1,glove_test2,glove_test3,glove_test4,glove_test5)
