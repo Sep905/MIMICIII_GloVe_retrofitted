@@ -109,8 +109,8 @@ plots(glove_true1,glove_prob1,"Baseline",retro_true3,retro_prob3,"Retrofitting")
 
 ![TSNE visualization](img/tsne.png?raw=true)
 
-Note that we selected 4 UMLS semantic groups and 7 words that belong to a specific semantic type:
-| Semantic <br /> group | Semantic <br /> type | Words | 
+Note that we selected 4 UMLS semantic groups and 7 words that belong to a specific semantic type (or subgroup):
+| Semantic group | Semantic type <br /> (or subgroup) | Words | 
 |     :---:       |     :---:      |     :---:      |
 | Anatomy   | bones     | humerus, rib, femur, scapula, tibia, phalanges, ulna   |
 | Disorders   | respiratory disease and syntomps     | dyspnea, cough, bronchitis, asthma, tuberculosis, bronchopneumonia, pleuritis   |
