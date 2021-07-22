@@ -78,7 +78,7 @@ Note: a test run needs a ```best_model.pt``` files resulting from training, sinc
 3. ```test_ytrue.pkl``` true probabilities for each example in the test set;
 
 
-## Results, plot and visualization 
+## Prediction results, plot and visualization 
 Scores achieved in AUC-ROC, AUC-PR and Brier-score when using the HCNN for mortality prediction. We compared the MIMIC-III text representaions learned with GloVe and enriched with UMLS synonyms by using Retrofitting in the 48H ICU mortality prediction task:
 
 
@@ -107,6 +107,18 @@ plots(glove_true1,glove_prob1,"Baseline",retro_true3,retro_prob3,"Retrofitting")
 ```
 
 
-
 ![TSNE visualization](img/tsne.png?raw=true)
+
+Note that we selected 4 UMLS semantic groups and 7 words that belong to a specific semantic type:
+| Semantic <br /> group | Semantic <br /> type | Words | 
+|     :---:       |     :---:      |     :---:      |
+| Anatomy   | bones     | humerus, rib, femur, scapula, tibia, phalanges, ulna   |
+| Disorders   | respiratory disease and syntomps     | dyspnea, cough, bronchitis, asthma, tuberculosis, bronchopneumonia, pleuritis   |
+| Procedures   | diagnostic procedures     | imaging, biopsy, radiography, cystoscopy, screening, immunohistochemistry, palpations   |
+| Chemicals & Drugs   | antibiotics     | amoxicillin, clarithromycin, sulfamethoxazole, cephalexin, trimethoprim, ceftriaxone, penicillin   |
+
+Example to apply T-SNE embeddings for embeddings dimensionality reduction and then visualization:
+```
+tsne_reduction_and_visualization(30000, 100) #need to specify the number of the learned word vectors and the embeddings dimension
+```
 
