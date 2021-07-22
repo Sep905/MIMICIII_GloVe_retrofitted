@@ -55,6 +55,10 @@ python conceptExtraction_entityLinking/retrofit.py -i embeddings/glove_embedding
 ``` 
 
 ## In-hospital mortality prediction with Hierarchical CNN (HCNN)
+
+![HCNN](img/HCNN.png?raw=true)
+
+
 Example to train the model:
 ```
 python model/train_cnn_han.py --dim 128 --emb 100 --timestep 1.0 --dropout 0.2 --batch_size 16 --data mimic3_textdata/in-hospital-mortality --notes mimic3_textdata/train --output_dir results --epoch 30 --lr 2e-4 --word2vec embeddings/glove_embeddings.txt --max_w 25 --max_s 500 --dim_cat 10 --vocabulary 30000
