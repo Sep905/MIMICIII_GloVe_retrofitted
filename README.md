@@ -32,7 +32,7 @@ In the dataset created each patient is represented by a text file containing the
 ## Learn baseline word vectors
 
 - Tokenize the MIMIC-III notes of the training set (creating a unique text file):
-```
+```python
 python mimic3benchmark/glove_reader_conll.py > embeddings/training_notes.txt
 ```
 - Learn Glove embeddings (https://github.com/stanfordnlp/GloVe) using ```embeddings/training_notes.txt``` as input. 
@@ -50,7 +50,7 @@ The outputs are:
 and then writted as text file in ```conceptExtraction_entityLinking/map_concept_CUIs.txt```;
 - <b>Lexicon creation with PyMedTermino </b>: run ```conceptExtraction_entityLinking/pymedtermino_lexicon_creation.py``` to create a semantic lexicon ```conceptExtraction_entityLinking/lexicon_UMLS_synonyms.txt``` using the concept:CUIs dictionary created; for each concept we retrieve its synonyms leveraging PyMedTermino (https://github.com/MedevaKnowledgeSystems/pymedtermino);
 - <b>Enhancing the word vectors using Retrofitting method </b>: Retrofitting (https://github.com/mfaruqui/retrofitting) is the post-processing method used to enhance the baseline word vectors ```embeddings/glove_embeddings.txt``` with the UMLS synonyms semantic lexicon ```conceptExtraction_entityLinking/lexicon_UMLS_synonyms.txt```; the retrofitted word vectors are written in ```embeddings/glove_retrofitted_embeddings.txt``` :
-```
+```python
 python conceptExtraction_entityLinking/retrofit.py -i embeddings/glove_embeddings.txt -l conceptExtraction_entityLinking/lexicon_UMLS_synonyms.txt -n 10 -o embeddings/glove_retrofitted_embeddings.txt
 ``` 
 
@@ -60,7 +60,7 @@ python conceptExtraction_entityLinking/retrofit.py -i embeddings/glove_embedding
 
 
 Example to train the model:
-```
+```python
 python model/train_cnn_han.py --dim 128 --emb 100 --timestep 1.0 --dropout 0.2 --batch_size 16 --data mimic3_textdata/in-hospital-mortality --notes mimic3_textdata/train --output_dir results --epoch 30 --lr 2e-4 --word2vec embeddings/glove_embeddings.txt --max_w 25 --max_s 500 --dim_cat 10 --vocabulary 30000
 ``` 
 Note: each <b>training</b> run produces a directory in ```results/...```, containing:
@@ -69,7 +69,7 @@ Note: each <b>training</b> run produces a directory in ```results/...```, contai
 3. ```metrics.pkl``` metrics achieved during the training.
 
 Example to test the model:
-```
+```python
 python model/test_cnn_han.py --dim 128 --emb 100 --timestep 1.0 --dropout 0.2 --batch_size 16 --data mimic3_textdata/in-hospital-mortality --notes mimic3_textdata/test  --output_dir results_test --lr 2e-4 --word2vec embeddings/glove_embeddings.txt --max_w 25 --max_s 500 --best_model results/best_model.pt --vocabulary 30000
 ``` 
 Note: a test run needs a ```best_model.pt``` files resulting from training, since its hyperparameters are loaded and tested on the test set. Each <b>testing</b> run produces in ```results_test/...```:
@@ -88,7 +88,7 @@ Scores achieved in AUC-ROC, AUC-PR and Brier-score when using the HCNN for morta
 | Retrofitted GloVe     | <b>0.822</b>±0.002       | <b>0.451</b>±0.003     | 0.089±0.003    |
 
 Example to obtain the mean scores over the model random runs:
-```
+```python
 glove_test1,glove_prob1,glove_true1 = read_test("results_test/glove/1/") #for GloVe predictions
 retro_test1,retro_prob1,retro_true1 = read_test("results_test/retro_preprocessed_syn/1/") #for GloVe retrofitted predictions
 mean_metrics(glove_test1,glove_test2,glove_test3,glove_test4,glove_test5) #to print the mean metrics over the random runs
@@ -97,7 +97,7 @@ mean_metrics(glove_test1,glove_test2,glove_test3,glove_test4,glove_test5) #to pr
 ![ROC curve and calibration plot](img/plots.png?raw=true)
 
 Example to plot the ROC curve and calibration plot for the best model run out of the random ones
-```
+```python
 #to find the best runs 
 best_base = find_best_run(glove_test1,glove_test2,glove_test3,glove_test4,glove_test5)
 best_retro = find_best_run(retro_test1,retro_test2,retro_test3,retro_test4,retro_test5) 
@@ -118,7 +118,7 @@ Note that we selected 4 UMLS semantic groups and 7 words that belong to a specif
 | Chemicals & Drugs   | antibiotics     | amoxicillin, clarithromycin, sulfamethoxazole, cephalexin, trimethoprim, ceftriaxone, penicillin   |
 
 Example to apply T-SNE embeddings for embeddings dimensionality reduction and then visualization:
-```
+```python
 tsne_reduction_and_visualization(30000, 100) #need to specify the number of the learned word vectors and the embeddings dimension
 ```
 
