@@ -16,7 +16,8 @@ Code based on: https://github.com/YerevaNN/mimic3-benchmarks
 
 Please cite the following publication: 
 
-G. Albi, M. Rios, R. Bellazzi and A. Abu-Hanna. Pre-trained Text Representations with Knowledge Bases for Mortality predicion. In Workshop on Knowledge Representation for Health Care, KR4HC 2021.
+G. Albi, M. Rios, R. Bellazzi and A. Abu-Hanna. Pre-trained Text Representations with Knowledge Bases for Mortality predicion. In Workshop on Knowledge Representation for Health Care, KR4HC 2021.  
+https://www.researchgate.net/publication/353555195_Pre-trained_Text_Representations_with_Knowledge_Bases_for_Mortality_Prediction
 
 ### Requirements
 
